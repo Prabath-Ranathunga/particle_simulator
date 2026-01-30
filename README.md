@@ -6,6 +6,8 @@ This project implements a high-performance particle system capable of rendering 
 
 At its core, this is an exploration of how we can transform abstract audio signals into tangible visual representations through particle physics simulation, all while maintaining the performance necessary for real-time interaction.
 
+![alt text](sample.png "Sample Image")
+
 ## The Philosophy Behind the Design
 
 Traditional particle systems often struggle with the balance between visual complexity and computational efficiency. This implementation takes a different approach by moving the entire physics simulation onto the GPU using Shader Storage Buffer Objects (SSBO), eliminating the CPU-GPU bottleneck that typically limits particle count and update frequency.
