@@ -1,0 +1,11 @@
+# GUI and OpenGL
+PyQt5>=5.15.9
+PyOpenGL>=3.1.6
+
+numpy>=1.24.0
+
+# C++ Python bindings
+pybind11>=2.10.0
+
+# For capturing system audio
+sounddevice>=0.4.6  
