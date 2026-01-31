@@ -274,6 +274,7 @@ class ParticleSimulatorApp(QApplication):
                             try:
                                 message = json.loads(line)
                                 intensity = message.get('intensity', 0.0)
+                                print(f"\n[DEBUG] Received intensity: {intensity:.4f}", end='', flush=True)
                                 self.widget.set_audio_reactivity(intensity)
                             except json.JSONDecodeError:
                                 pass

@@ -17,8 +17,8 @@ SAMPLE_RATE = 44100
 BLOCK_SIZE = 1024  # Smaller for lower latency
 SOCKET_HOST = 'localhost'
 SOCKET_PORT = 9999
-MIN_RMS = 0.001  # Noise floor
-MAX_RMS = 0.3    # Maximum expected RMS (adjust based on your system)
+MIN_RMS = 0.01  # Noise floor
+MAX_RMS = 0.05    # Maximum expected RMS (adjust based on your system)
 SMOOTHING = 0.7  # Smoothing factor (0.0 = no smoothing, 1.0 = max smoothing)
 
 
@@ -101,7 +101,7 @@ class AudioCapture:
     def audio_callback(self, indata, frames, time_info, status):
         """Called by sounddevice for each audio block."""
         if status:
-            print(f"Audio status: {status}")
+            print(f"\nAudio status: {status}")
         
         # Calculate RMS (root mean square) - measure of audio intensity
         audio_data = indata[:, 0] if indata.ndim > 1 else indata

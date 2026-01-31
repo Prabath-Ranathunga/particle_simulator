@@ -205,6 +205,7 @@ ParticleRenderer::ParticleRenderer(int particleCount)
     , m_glowIntensity(2.5f)
     , m_glowColor(0.2f, 0.5f, 1.0f)
     , m_trailSpread(2.0f)
+    , m_audioReactivity(0.0f)
 {
     m_particles.resize(m_particleCount);
 }
@@ -408,11 +409,13 @@ void ParticleRenderer::render(const glm::mat4& projection, const glm::mat4& view
     GLint viewLoc = glGetUniformLocation(m_gpuShaderProgram, "u_view");
     GLint timeLoc = glGetUniformLocation(m_gpuShaderProgram, "u_time");
     GLint deltaTimeLoc = glGetUniformLocation(m_gpuShaderProgram, "u_deltaTime");
+    GLint audioReactivityLoc = glGetUniformLocation(m_gpuShaderProgram, "u_audioReactivity");
     
     glUniformMatrix4fv(projLoc, 1, GL_FALSE, &projection[0][0]);
     glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
     glUniform1f(timeLoc, m_time);
     glUniform1f(deltaTimeLoc, m_lastDeltaTime);
+    glUniform1f(audioReactivityLoc, m_audioReactivity);
     
     // Enable blending for particles
     glEnable(GL_BLEND);
